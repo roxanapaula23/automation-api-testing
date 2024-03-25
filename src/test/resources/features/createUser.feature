@@ -1,9 +1,12 @@
 Feature: Create User
 
-  Scenario: Check if user can create an account with valid credentials
+  Background:
     Given The service is up
+
+  Scenario: Check if user can create an account with valid credentials
     When I send a POST request having valid credentials
     Then I have 200 status code
+    And Response is valid
 #
 #    Examples:
 #      | id | userName    | firtstName | lastName | email                   | password | phoneNumber | userStatus |

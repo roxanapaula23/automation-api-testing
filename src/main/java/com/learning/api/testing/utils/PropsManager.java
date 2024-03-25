@@ -4,13 +4,12 @@ import java.io.InputStream;
 import java.util.Properties;
 
 public class PropsManager {
+
+    private final static String PROPS_FILE_NAME = "main.properties";
+
     public static Properties props() {
-
         Properties prop = new Properties();
-
-        // Load properties file from classpath
-        try (InputStream input = PropsManager.class.getClassLoader().getResourceAsStream("config.properties")) {
-            // Check if file was found
+        try (InputStream input = PropsManager.class.getClassLoader().getResourceAsStream(PROPS_FILE_NAME)) {
             if (input == null) {
                 System.out.println("Sorry, unable to find config.properties");
                 return null;
